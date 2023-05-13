@@ -8,10 +8,14 @@ const router = express.Router();
 
 router.post("/login", (req, res) => {
   // Handle login logic here
+  const { name, email, password } = req.body;
+  res.send({ name, email, password });
 });
 
 router.post("/signup", (req, res) => {
   // Handle signup logic here
+  const { name, email, password } = req.body;
+  res.send({ name, email, password });
 });
 
 module.exports = router;

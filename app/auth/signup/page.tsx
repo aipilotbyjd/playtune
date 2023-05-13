@@ -16,7 +16,9 @@ const SignUp = () => {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.ok) {
-        window.location.href = "/auth/login";
+        res.json().then((data) => {
+          console.log(data);
+        });
       } else {
         res.json().then((data) => {
           console.log(data);

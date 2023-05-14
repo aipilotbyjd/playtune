@@ -1,4 +1,4 @@
-const users = require("../../appwrite.js");
+const { users } = require("../../appwrite.js");
 const { ID } = require("node-appwrite");
 
 // sign up controller function
@@ -8,7 +8,7 @@ const SignUp = async (req, res) => {
     const { name, email, password } = req.body;
 
     // check if user exists with that email
-    const user = users.createMD5user(ID.unique(), email, password, name);
+    const user = users.createMD5User(ID.unique(), email, password, name);
 
     user
       .then((result) => {

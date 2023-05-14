@@ -1,6 +1,6 @@
 const express = require("express");
 const next = require("next");
-const SignUp = require("../controllers/auth");
+const { SignUp } = require("../controllers/auth");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });

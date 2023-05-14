@@ -8,7 +8,7 @@ const SignUp = async (req, res) => {
     const { name, email, password } = req.body;
 
     // check if user exists with that email
-    const user = users.createMD5user(ID.unique(), email, password);
+    const user = users.createMD5user(ID.unique(), email, password, name);
 
     user
       .then((result) => {

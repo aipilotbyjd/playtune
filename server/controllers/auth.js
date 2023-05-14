@@ -1,4 +1,4 @@
-const { ID, Client, Users, Account } = require("node-appwrite");
+import { Client, Account, ID } from "appwrite";
 
 // sign up controller function
 const SignUp = async (req, res) => {
@@ -7,13 +7,13 @@ const SignUp = async (req, res) => {
     .setProject(process.env.APPWRITE_PROJECT) // Your project ID
     .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
 
-  const users = new Users(client);
+  const account = new Account(client);
   try {
     // console.log("req.body", req.body);
     const { name, email, password } = req.body;
 
     // check if user exists with that email
-    const user = users.createMD5User(ID.unique(), email, password, name);
+    const user = account.create(ID.unique(), email, password, name);
 
     user
       .then((result) => {
@@ -44,7 +44,6 @@ const Login = async (req, res) => {
     .setProject(process.env.APPWRITE_PROJECT) // Your project ID
     .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
 
-  const users = new Users(client);
   const account = new Account(client);
 
   try {

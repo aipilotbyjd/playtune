@@ -7,11 +7,7 @@ const app = next({ dev });
 
 const router = express.Router();
 
-router.post("/login", (req, res) => {
-  // Handle login logic here
-  const { name, email, password } = req.body;
-  res.send({ name, email, password });
-});
+router.post("/login", Login);
 
 router.post("/signup", SignUp);
 

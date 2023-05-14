@@ -12,10 +12,19 @@ const SignUp = async (req, res) => {
 
     user
       .then((result) => {
-        console.log("result", result);
+        return res.json({
+          status: 1,
+          message: "Sign up success! Please sign in.",
+          data: result,
+        });
       })
       .catch((error) => {
         console.log("error", error);
+        return res.json({
+          status: 0,
+          message: "Sign up failed. Try again.",
+          data: error,
+        });
       });
   } catch (err) {
     console.log(err);

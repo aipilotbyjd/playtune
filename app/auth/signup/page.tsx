@@ -17,6 +17,13 @@ const SignUp = () => {
       if (res.ok) {
         res.json().then((data) => {
           console.log(data);
+          if (data.status == 1) {
+            window.location.href = "/auth/login";
+          } else {
+            if (data.status == 0) {
+              alert(data.message);
+            }
+          }
         });
       } else {
         res.json().then((data) => {

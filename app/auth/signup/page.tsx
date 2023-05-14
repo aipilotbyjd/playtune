@@ -9,11 +9,10 @@ const SignUp = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = { name, email, password };
-
     fetch(`${apibaseurl}/api/auth/signup`, {
       method: "POST",
-      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {

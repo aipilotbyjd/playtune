@@ -1,8 +1,13 @@
-const { users } = require("../../appwrite.js");
-const { ID } = require("node-appwrite");
+const { ID, Client, Users } = require("node-appwrite");
 
 // sign up controller function
 const SignUp = async (req, res) => {
+  const client = new Client()
+    .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint
+    .setProject(process.env.APPWRITE_PROJECT) // Your project ID
+    .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
+
+  const users = new Users(client);
   try {
     // console.log("req.body", req.body);
     const { name, email, password } = req.body;

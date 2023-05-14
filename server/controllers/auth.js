@@ -1,11 +1,10 @@
-import { Client, Account, ID } from "appwrite";
+const { ID, Client, Account } = require("appwrite");
 
 // sign up controller function
 const SignUp = async (req, res) => {
   const client = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint
-    .setProject(process.env.APPWRITE_PROJECT) // Your project ID
-    .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
+    .setProject(process.env.APPWRITE_PROJECT); // Your project ID
 
   const account = new Account(client);
   try {
@@ -41,8 +40,7 @@ const SignUp = async (req, res) => {
 const Login = async (req, res) => {
   const client = new Client()
     .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint
-    .setProject(process.env.APPWRITE_PROJECT) // Your project ID
-    .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
+    .setProject(process.env.APPWRITE_PROJECT); // Your project ID
 
   const account = new Account(client);
 

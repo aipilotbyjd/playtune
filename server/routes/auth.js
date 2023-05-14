@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+const SignUp = require("../controllers/auth");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -12,10 +13,6 @@ router.post("/login", (req, res) => {
   res.send({ name, email, password });
 });
 
-router.post("/signup", (req, res) => {
-  // Handle signup logic here
-  const { name, email, password } = req.body;
-  res.send({ name, email, password });
-});
+router.post("/signup", SignUp);
 
 module.exports = router;

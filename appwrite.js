@@ -1,14 +1,4 @@
-import { Client, Account, Users } from "node-appwrite";
-
-interface IEnv {
-  APPWRITE_ENDPOINT: string;
-  APPWRITE_PROJECT: string;
-  APPWRITE_API_KEY: string;
-}
-
-declare var process: {
-  env: IEnv;
-};
+const { Client, Account, Users } = require("node-appwrite");
 
 const client = new Client()
   .setEndpoint(process.env.APPWRITE_ENDPOINT) // Your API Endpoint

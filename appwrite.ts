@@ -1,4 +1,4 @@
-import { Client, Account } from "node-appwrite";
+import { Client, Account, Users } from "node-appwrite";
 
 interface IEnv {
   APPWRITE_ENDPOINT: string;
@@ -16,8 +16,10 @@ const client = new Client()
   .setKey(process.env.APPWRITE_API_KEY); // Your secret API key
 
 const account = new Account(client);
+const users = new Users(client);
 
 module.exports = {
   client,
   account,
+  users,
 };
